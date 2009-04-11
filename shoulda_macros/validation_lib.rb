@@ -3,10 +3,10 @@ module ValidationLib
     
     def should_validate_as_email(field)
       metaclass = (class << self; self; end)
-      metaclass.send(:define_method,:should_allow_values) do |klass,*values|
+      metaclass.send(:define_method,:should_allow_email_values) do |klass,*values|
         should_allow_values_for(field, *values)
       end
-      metaclass.send(:define_method,:should_not_allow_values) do |klass, *values|
+      metaclass.send(:define_method,:should_not_allow_email_values) do |klass, *values|
         should_not_allow_values_for(field, values)
       end
       should_validate_as_email_klass(model_class, field)
@@ -35,10 +35,10 @@ module ValidationLib
     
     def should_validate_as_zip_code(field)
       metaclass = (class << self; self; end)
-      metaclass.send(:define_method,:should_allow_values) do |klass,*values|
+      metaclass.send(:define_method,:should_allow_zip_code_values) do |klass,*values|
         should_allow_values_for(field, *values)
       end
-      metaclass.send(:define_method,:should_not_allow_values) do |klass, *values|
+      metaclass.send(:define_method,:should_not_allow_zip_code_values) do |klass, *values|
         should_not_allow_values_for(field, values)
       end
       should_validate_as_zip_code_klass(model_class, field)
@@ -64,10 +64,10 @@ module ValidationLib
     
     def should_validate_as_phone(field)
       metaclass = (class << self; self; end)
-      metaclass.send(:define_method,:should_allow_values) do |klass,*values|
+      metaclass.send(:define_method,:should_allow_phone_values) do |klass,*values|
         should_allow_values_for(field, *values)
       end
-      metaclass.send(:define_method,:should_not_allow_values) do |klass, *values|
+      metaclass.send(:define_method,:should_not_allow_phone_values) do |klass, *values|
         should_not_allow_values_for(field, values)
       end
       should_validate_as_phone_klass(model_class, field)
